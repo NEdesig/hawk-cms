@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>HAWK CMS — Панель управления</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    body { min-height: 100vh; }
+
+    .admin-wrap {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 0 22px;
+    }
+
+    .admin-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .admin-top h1 { font-size: 32px; }
+
+    .admin-card {
+      background: #1b1c22;
+      border: 1px solid #34353d;
+      padding: 26px;
+      margin: 18px 0;
+    }
+
+    .admin-card h2 {
+      font-size: 16px;
+      margin: 0 0 20px;
+    }
+
+    .field {
+      display: grid;
+      gap: 8px;
+      margin: 16px 0;
+    }
+
+    .field label {
+      font-size: 10px;
+      letter-spacing: 1px;
+      color: #aaa;
+    }
+
+    .field input, .field textarea {
+      width: 100%;
+      background: #101116;
+      border: 1px solid #41424a;
+      color: #fff;
+      padding: 13px;
+      font: inherit;
+    }
+
+    .field textarea {
+      min-height: 95px;
+      resize: vertical;
+    }
+
+    .admin-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .admin-actions button {
+      border: 0;
+      background: var(--accent);
+      color: white;
+      padding: 14px 20px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .admin-actions .secondary {
+      background: #383941;
+    }
+
+    .hint {
+      font-size: 11px;
+      color: #999;
+      line-height: 1.7;
+    }
+
+    .status {
+      color: #8dd8a0;
+      font-size: 12px;
+      margin-top: 14px;
+    }
+
+    @media(max-width: 600px) {
+      .admin-top {
+        align-items: start;
+        gap: 12px;
+        flex-direction: column;
+      }
+
+      .admin-card { padding: 18px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="topline">
+    <span>HAWK CMS</span>
+    <span>ЛОКАЛЬНЫЙ РЕЖИМ</span>
+  </div>
+
+  <div class="admin-wrap">
+    <div class="admin-top">
+      <div>
+        <div class="eyebrow">УПРАВЛЕНИЕ САЙТОМ</div>
+        <h1>
+          ПАНЕЛЬ
+          <em style="color:var(--accent)">АДМИНИСТРАТОРА</em>
+        </h1>
+      </div>
+
+      <a class="ticket" href="index.html">
+        ОТКРЫТЬ САЙТ ↗
+      </a>
+    </div>
+
+    <div class="admin-card">
+      <h2>ОСНОВНЫЕ НАСТРОЙКИ</h2>
+
+      <p class="hint">
+        Изменения сохраняются в localStorage этого браузера.
+        Они видны на этом же устройстве и не синхронизируются
+        между посетителями. Для общей публикации позже подключим базу данных.
+      </p>
+
+      <div class="field">
+        <label>НАЗВАНИЕ КЛУБА</label>
+        <input id="club" value="АВАНГАРД">
+      </div>
+
+      <div class="field">
+        <label>ЗАГОЛОВОК ПЕРВОГО ЭКРАНА</label>
+        <textarea id="title">ВМЕСТЕ
+К ПОБЕДЕ</textarea>
+      </div>
+
+      <div class="field">
+        <label>АКЦЕНТНЫЙ ЦВЕТ</label>
+        <input id="accent" type="color" value="#e12632">
+      </div>
+
+      <div class="admin-actions">
+        <button id="save">СОХРАНИТЬ ИЗМЕНЕНИЯ</button>
+        <button class="secondary" id="reset">СБРОСИТЬ</button>
+      </div>
+
+      <div class="status" id="status"></div>
+    </div>
+
+    <div class="admin-card">
+      <h2>СЛЕДУЮЩИЕ ЭТАПЫ</h2>
+      <p class="hint">
+        В текущей демонстрационной версии редактируются
+        название клуба, заголовок главного экрана и акцентный цвет.
+        Далее можно добавить редакторы новостей, матчей, состава,
+        изображений и всех страниц.
+      </p>
+    </div>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>
